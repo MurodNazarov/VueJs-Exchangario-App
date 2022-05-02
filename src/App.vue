@@ -1,25 +1,38 @@
 <template>
-  <div>
-      <nav-bar/>
-      <Hero/>
+   <div>
+      <exchangele-nav-bar :brandName="brandName" :menuItems="menuItems" />
+      <exchangele-hero/>
       <exchangele-list/>
-      <pagination/>
+      <exchangele-pagination/>
   </div>
 </template>
 
+
 <script>
-  import NavBar from '@/components/NavBar.vue'
-  import Hero from '@/components/Hero.vue'
-import ExchangeleList from './components/ExchangeleList.vue'
-import Pagination from './components/Pagination.vue'
+  import ExchangeleNavBar from '@/components/NavBar.vue'
+  import ExchangeleHero from '@/components/Hero.vue'
+  import ExchangeleList from './components/ExchangeleList.vue'
+  import ExchangelePagination from './components/Pagination.vue'
 export default {
   name: 'App',
   components:{
-    NavBar,
-    Hero,
+    ExchangeleNavBar,
+    ExchangeleHero,
     ExchangeleList,
-    Pagination
-  }
+    ExchangelePagination
+  },
+      data() {
+          return {
+            brandName: "Exchagario",
+            menuItems:[
+              {text: "HOME", link:"/" },
+              {text: "ABOUT", link:"/about"},
+              {text: "FAQ", link:"/faq" },
+              {text: "LOGIN", link:"/login" },
+              {text: "REGISTER", link:"/register" },
+            ]
+          }
+        }
 }
 </script>
 
